@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sports Shoes website</title>
+<style>
+	.card-registration .select-input.form-control[readonly]:not([disabled]) {
+	  font-size: 1rem;
+	  line-height: 2.15;
+	  padding-left: .75em;
+	  padding-right: .75em;
+	}
+	.card-registration .select-arrow {
+	  top: 13px;
+	}
+</style>
+<link rel="stylesheet"
+	  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	  integrity ="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+	  crossorigin ="anonymous">
+</head>
+<body>
+	<!-- 	create navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+			aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		  <a class="navbar-brand" href="#">PranavBoss</a>
+		</div>
+	</div>
+</nav>
+<br>
+<br>
+<!-- 	create Form-->
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+			<!-- success message -->
+		<div th:if="${param.success}">
+			<div class="alert alert-info">You've successfully registered to our awesome app!</div>
+		</div>
+		<h1>Registration</h1>
+		<form th:action="@{/registration}" th:object="${user}" method="post">
+
+			<div class="form-group">
+				<label class="control-label" for="firstName">First Name</label>
+				<input id="firstName" class="form-control" th:field="*{firstName}" required autofocus="autofocus">
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="lastName">Last Name</label>
+				<input id="lastName" class="form-control" th:field="*{lastName}" required autofocus="autofocus">
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="email">Email</label>
+				<input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus">
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="password">Password</label>
+				<input id="password" type="password" class="form-control" th:field="*{password}" required autofocus="autofocus">
+			</div>
+
+			<div class="form-group">
+				<label class="control-label" for="phone">Phone</label>
+				<input id="phone" type="text" class="form-control" th:field="*{phone}" required autofocus="autofocus">
+			</div>
+
+
+
+			<div class="form-group">
+				<label class="control-label">Gender</label>
+				<br>
+				<input type="radio" id="option1" name="option1" class="custom-control-input" value="Male" th:field="*{gender}">
+				<label class="custom-control-label" for="option1">Male</label>
+
+
+				<input type="radio" id="option2" name="option1" class="custom-control-input" value="Female" th:field="*{gender}">
+				<label class="custom-control-label" for="option2">Female</label>
+
+
+				<input type="radio" id="option3" name="option1" class="custom-control-input" value="other" th:field="*{gender}">
+				<label class="custom-control-label" for="option3">Other</label>
+
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Register</button>
+				<span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
+			</div>
+
+
+
+
+
+
+
+
+		</form>
+	</div>
+</div>
+
+</body>
+</html> 
