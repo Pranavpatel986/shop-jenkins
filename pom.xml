@@ -84,7 +84,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-<!-- 		<finalName>Shop-Application</finalName> -->
+		<finalName>Shop-Application</finalName>
 	</build>
 
 </project>
